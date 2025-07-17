@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De $0 a $100K en 90 Días | Sistema de Referidos Probado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-header {
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+            border: 2px solid rgba(34, 197, 94, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.15) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .urgency-badge {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #22c55e, #16a34a, #15803d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+            line-height: 1.1;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #fbbf24;
+            font-weight: normal;
+        }
+
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.3); }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(45deg, rgba(34, 197, 94, 0.9), rgba(22, 163, 74, 0.9));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(34, 197, 94, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(34, 197, 94, 0.5);
+            background: linear-gradient(45deg, rgba(34, 197, 94, 1), rgba(22, 163, 74, 1));
+        }
+
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .proof-item {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #22c55e;
+        }
+
+        .proof-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(26, 26, 26, 0.95));
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story h2 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .story-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 40px auto;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(34, 197, 94, 0.6);
+            box-shadow: 0 25px 50px rgba(34, 197, 94, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #22c55e;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(26, 26, 26, 0.95));
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .result-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(34, 197, 94, 0.6);
+            box-shadow: 0 25px 50px rgba(34, 197, 94, 0.2);
+        }
+
+        .result-header {
+            font-size: 1.8rem;
+            color: #22c55e;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .result-amount {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+
+        .result-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .result-time {
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 25px;
+            padding: 35px;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .author-info h4 {
+            color: #22c55e;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .earnings {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(26, 26, 26, 0.98));
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-badge {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            animation: shake 2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .pricing-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid rgba(34, 197, 94, 0.4);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+            z-index: -1;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(34, 197, 94, 0.7);
+            box-shadow: 0 30px 60px rgba(34, 197, 94, 0.3);
+        }
+
+        .pricing-header-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #22c55e;
+        }
+
+        .price-container {
+            margin-bottom: 25px;
+        }
+
+        .original-price {
+            font-size: 2rem;
+            color: #dc2626;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .current-price {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .currency {
+            font-size: 2rem;
+            color: #22c55e;
+            margin-right: 8px;
+        }
+
+        .amount {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #22c55e;
+            line-height: 1;
+        }
+
+        .period {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-left: 8px;
+        }
+
+        .price-description {
+            opacity: 0.9;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+        }
+
+        .value-proposition {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 35px;
+        }
+
+        .value-proposition h4 {
+            color: #fbbf24;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+        }
+
+        .feature-icon {
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+
+        .bonus-section {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid rgba(34, 197, 94, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .bonus-section h4 {
+            color: #22c55e;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .bonus-item {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 25px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            border: none;
+            border-radius: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .pricing-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .pricing-btn:hover::before {
+            left: 100%;
+        }
+
+        .guarantee {
+            margin-top: 25px;
+            font-size: 1rem;
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .timer {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        .timer-display {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(26, 26, 26, 0.95));
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #22c55e;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 25px 25px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 0;
+            border-top: 2px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-content p {
+            opacity: 0.8;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            border-color: rgba(34, 197, 94, 0.6);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .social-proof {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .amount {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 1s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">💰 ReferralMaster</div>
+            <a href="#pricing" class="cta-header">ACCESO INMEDIATO</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="urgency-badge">🔥 OFERTA LIMITADA - SOLO 48 HORAS</div>
+                <h1>De $0 a $100K+ en 90 Días</h1>
+                <h2>Con Nuestro Sistema de Referidos Automatizado</h2>
+                <p>Descubre el método exacto que 2,847 emprendedores han usado para generar <strong>$50K-$300K mensuales</strong> sin experiencia previa, sin productos propios y trabajando desde casa.</p>
+                <div class="hero-cta">
+                    <a href="#pricing" class="btn">QUIERO ACCESO INMEDIATO</a>
+                </div>
+                <div class="social-proof">
+                    <div class="proof-item">
+                        <div class="proof-number">2,847</div>
+                        <div class="proof-text">Estudiantes Activos</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">$12.4M</div>
+                        <div class="proof-text">Generados por Estudiantes</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">94%</div>
+                        <div class="proof-text">Tasa de Éxito</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="container">
+            <div class="story-content fade-in">
+                <h2>Mi Historia: De Bancarrota a Millonario</h2>
+                <div class="story-image">💼</div>
+                <p class="story-text">
+                    Hace 3 años, tenía <span class="highlight">$127 en mi cuenta bancaria</span> y estaba a punto de perder mi casa. Trabajaba 16 horas diarias en un trabajo que odiaba, sin ver un futuro mejor.
+                </p>
+                <p class="story-text">
+                    Hasta que descubrí <span class="highlight">EL PODER DE LOS REFERIDOS</span>. No era solo recomendar productos... era crear un sistema automatizado que trabajara 24/7 para mí.
+                </p>
+                <p class="story-text">
+                    En mis primeros 30 días, generé <span class="highlight">$8,400</span>. En 90 días, había llegado a <span class="highlight">$47,000 mensuales</span>. Hoy, mi sistema genera más de <span class="highlight">$300,000 cada mes</span> automáticamente.
+                </p>
+                <p class="story-text">
+                    Pero lo más importante: <span class="highlight">He enseñado este mismo sistema a 2,847 personas</span> y el 94% ha generado al menos $10,000 en sus primeros 60 días.
+                </p>
+                <a href="#pricing" class="btn">QUIERO ESTE SISTEMA AHORA</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title fade-in">Estadísticas que Hablan por Sí Solas</h2>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$12.4M</div>
+                    <div class="stat-text">Ingresos Totales Generados por Estudiantes</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">2,847</div>
+                    <div class="stat-text">Estudiantes Activos Ganando Dinero</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-text">Tasa de Éxito Comprobada</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$47K</div>
+                    <div class="stat-text">Promedio Mensual por Estudiante</div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#pricing" class="btn">ÚNETE A LOS EXITOSOS</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="results">
+        <div class="container">
+            <h2 class="section-title fade-in">Resultados Reales de Estudiantes Reales</h2>
+            <div class="results-grid">
+                <div class="result-card fade-in">
+                    <div class="result-header">María González</div>
+                    <div class="result-amount">$89,400</div>
+                    <div class="result-description">Madre soltera, sin experiencia previa en marketing</div>
+                    <div class="result-time">En solo 4 meses</div>
+                </div>
+                <div class="result-card fade
